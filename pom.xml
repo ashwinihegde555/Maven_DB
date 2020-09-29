@@ -31,6 +31,20 @@
     <version>2.3.3</version>
     <scope>provided</scope>
 </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.artifact/maven-artifact -->
+<dependency>
+    <groupId>org.apache.maven.artifact</groupId>
+    <artifactId>maven-artifact</artifactId>
+    <version>3.0-alpha-1</version>
+</dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.maven/maven-artifact -->
+<dependency>
+    <groupId>org.apache.maven</groupId>
+    <artifactId>maven-artifact</artifactId>
+    <version>3.6.3</version>
+</dependency>
+
 
   <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 <dependency>
@@ -82,9 +96,9 @@
                             <review.team>qa</review.team>
                         </deployProperties>
                         <publisher>
-                            <contextUrl>https://oss.jfrog.org</contextUrl>
-                            <username>deployer</username>
-                            <password>{DESede}...</password>
+                            <contextUrl>http://52.39.100.45:8081/</contextUrl>
+                            <username>admin</username>
+                            <password>admin@123</password>
                             <repoKey>libs-release-local</repoKey>
                             <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
                         </publisher>
