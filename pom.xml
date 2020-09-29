@@ -4,6 +4,15 @@
   <artifactId>RegApp2</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+	
+	
+    <distributionManagement>
+        <snapshotRepository>
+            <id>artifactory</id>
+            <name>artifactory</name>
+            <url>http://52.39.100.45:8081/</url>
+        </snapshotRepository>
+    </distributionManagement>
   <dependencies>
   <!-- https://mvnrepository.com/artifact/javax.servlet/jsp-api -->
 <dependency>
