@@ -8,11 +8,7 @@ node {
             sh "mvn clean"
         }
     }
-      stage('Install'){
-        withMaven {
-            sh "mvn install"
-        }
-    }      
+  
   stage('Build'){
        withMaven {
          
