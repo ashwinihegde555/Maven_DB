@@ -1,6 +1,6 @@
 @Library('shared-library@master')
 
-node{
+
 	try{
 		def gitRepo;
 		def pipeline;
@@ -11,6 +11,6 @@ node{
 	} catch (Exception e){
 	throw e;
 	}
-}
+
 	
 
