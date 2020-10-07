@@ -1,6 +1,16 @@
 @Library('shared-library@master')
 
-	def pipeline = load 'deploy_dev.groovy'
-	pipeline.SCM()
+node{
+	try{
+		def gitRepo;
+		def pipeline;
+	gitRepo = "https://github.com/ashwinihegde555/shared-library.git"
+	clonerepo(gitRepo, 'master');
+	pipeline = load "shared-library/vars/deploy_dev.groovy"
+	pipeline.executeBuild();
+	} catch (Exception e){
+	throw e;
+	}
+}
 	
 
