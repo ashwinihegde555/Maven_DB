@@ -1,43 +1,24 @@
-
-
 node {
-    try{
+   
     stage('SCM'){
     git 'https://github.com/ashwinihegde555/Maven_DB.git'
     }
-    } catch(Exception e){
-    throw e;
-    }
-    try{
     stage('Clean'){
         withMaven {
             sh "mvn clean"
         }
     }
-    }catch(Exception e){
-    throw e;
-    }
-    try{
       stage('Install'){
         withMaven {
             sh "mvn install"
         }
-    }
-    }catch(Exception e){
-    throw e;
-    }
-    try{
-       
-    stage('Build'){
+    }      
+  stage('Build'){
        withMaven {
          
      sh "mvn package"
     }
     }
-    }catch(Exception e){
-        throw e;
-    }
-
     stage('deploy'){
        echo  pwd()
          sshagent(['deploy_user']) {
