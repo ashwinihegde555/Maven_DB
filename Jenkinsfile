@@ -1,11 +1,11 @@
 @Library('shared-library@main')
-def call(){
-echo "starts loading"
-	def pipeline = load "shared-library/vars/deploy_dev.groovy"
-	echo "loaded"
-	pipeline.node;
-	echo "building"
-}
+def code
 
+node('master') {
+ 
+  stage('Load') {
+    code = load 'deploy_dev.groovy'
+  }
+}
 	
 
