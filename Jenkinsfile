@@ -4,7 +4,7 @@ def code
 node('master') {
  
   stage('Load') {
-    code = load 'deploy_dev.groovy'
+    code = load 'shared-library/vars/deploy_dev.groovy'
   }
 }
 	
