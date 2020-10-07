@@ -1,8 +1,8 @@
 @Library('shared-library@main')
-def script = "shared-library/vars/deploy_dev.groovy"
-def method(script){
+
+def method(){
 def call
-call = load 'script'
+call = loadScript 'shared-library/vars/deploy_dev.groovy'
 echo "loaded"
 call.executeBuild();
   return call;
