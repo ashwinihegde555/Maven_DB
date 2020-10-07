@@ -1,10 +1,11 @@
 @Library('shared-library@main')
-	def gitRepo;
+try{
 	def pipeline;
-	gitRepo = "https://github.com/ashwinihegde555/shared-library.git"
 	pipeline = load "shared-library/vars/deploy_dev.groovy"
 	pipeline.executeBuild();
-
+}catch (Exception e){
+	throw e;
+}
 
 	
 
