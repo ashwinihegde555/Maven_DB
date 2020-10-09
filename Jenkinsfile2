@@ -25,12 +25,10 @@ node {
       def  CMD = "curl --write-out %{http_code} --silent --output /dev/null ${CHECK_URL}"
 
 
-    stage('stage-one'){
-         sh "${CMD} > commandResult"
+    stage('URL_Check'){
+      
                     env.status = readFile('commandResult').trim()
-    }
-    stage('stage-two'){
-        sh "echo ${env.status}"
+                   sh "echo ${env.status}"
                     if (env.status == '200') {
                         currentBuild.result = "SUCCESS"
                     }
