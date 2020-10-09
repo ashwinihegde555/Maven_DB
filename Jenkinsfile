@@ -16,7 +16,7 @@ node {
      sh "mvn package"
     }
     }
-    stage('deploy'){
+    stage('deploy_dev'){
        echo  pwd()
          sshagent(['deploy_user']) {
        sh "scp  -o StrictHostKeyChecking=no target/RegApp2-0.0.1-SNAPSHOT.war ec2-user@13.233.244.215:/opt/apache-tomcat-8.5.58/webapps"
@@ -27,11 +27,10 @@ node {
       def  CMD = "curl --write-out %{http_code} --silent --output /dev/null ${CHECK_URL}"
 
 
-    stage('stage-one'){
-         sh "${CMD} > commandResult"
+    stage('URL_Check'){
                     env.status = readFile('commandResult').trim()
-    }
-    stage('stage-two'){
+    
+    
         sh "echo ${env.status}"
                     if (env.status == '200') {
                         currentBuild.result = "SUCCESS"
