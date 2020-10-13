@@ -25,8 +25,7 @@ node {
     String url = "http://13.233.244.215:8080/RegApp2-0.0.1-SNAPSHOT/"
    String response = sh(script: "curl -s $url", returnStdout: true).trim()
   // def    CHECK_URL = "http://13.233.244.215:8080/"
-    //  def  CMD = "curl --write-out %{http_code} --silent --output /dev/null ${CHECK_URL}"
-
+    
 
     stage('URL_Check'){
                     env.status = readFile('commandResult').trim()
