@@ -1,0 +1,78 @@
+node {
+    
+    def nodeOs=isUnix() ? 'Linux' : 'Windows'
+
+    stage('SCM'){
+    git 'https://github.com/ashwinihegde555/Maven_DB.git'
+    }
+    stage('Clean'){
+        if(nodeOs=='Windows')
+                {
+        maven {
+            bat "mvn clean"
+           }
+                }
+        else{
+        maven{
+            sh "mvn clean"
+        }
+        }
+    }
+  
+  stage('Build'){
+       if(nodeOs=='Windows')
+                {
+       maven {
+         
+     bat "mvn package"
+    }
+    }
+    else{
+        maven{
+            sh "mvn package"
+        }
+    }
+    }
+    stage('sonarqube'){
+        if(nodeOs=='Windows')
+                {
+       maven { 
+           bat "mvn sonar:sonar  -Dsonar.projectKey=maven  -Dsonar.host.url=http://localhost:9000 -Dsonar.login=harsha"
+       }
+                }
+                else
+                {
+                    maven { 
+           sh "mvn sonar:sonar  -Dsonar.projectKey=maven  -Dsonar.host.url=http://localhost:9000 -Dsonar.login=harsha"
+       }
+                }
+
+    }
+    stage('deploy_dev'){
+       echo  pwd()
+          {
+       bat " copy target/RegApp2-0.0.1-SNAPSHOT.war C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\"
+         }  
+    }*/
+    String url = "http://localhost:8000/RegApp2-0.0.1-SNAPSHOT/"
+   String response = sh(script: "curl -s $url", returnStdout: true).trim()
+  // def    CHECK_URL = "http://localhost:8000/"
+    //  def  CMD = "curl --write-out %{http_code} --silent --output /dev/null ${CHECK_URL}"
+
+
+    stage('URL_Check'){
+                    env.status = readFile('commandResult').trim()
+    
+    
+        sh "echo ${env.status}"
+                    if (env.status == '200') {
+                        currentBuild.result = "SUCCESS"
+                    }
+                    else {
+                        currentBuild.result = "FAILURE"
+                    }
+    }
+
+}
+
+  
