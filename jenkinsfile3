@@ -1,7 +1,7 @@
 node {
     
     def nodeOs=isUnix() ? 'Linux' : 'Windows'
-    tools{
+    tools {
           maven "maven"
     }
 environment{
