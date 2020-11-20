@@ -53,7 +53,7 @@ node {
           {
       // bat " copy target/RegApp2-0.0.1-SNAPSHOT.war C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\"
          }  
-    }*/
+    }
     String url = "http://localhost:8000/RegApp2-0.0.1-SNAPSHOT/"
    String response = sh(script: "curl -s $url", returnStdout: true).trim()
   // def    CHECK_URL = "http://localhost:8000/"
