@@ -2,17 +2,17 @@ FROM alpine/git as repo
 
 MAINTAINER  ashwini.h2397@gmail.com 
 
-WORKDIR /app
+WORKDIR C:/WINDOWS/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/mvn
 RUN git clone https://github.com/ashwinihegde555/Maven_DB.git
 
 
 FROM maven as build
-WORKDIR /app
+WORKDIR C:/WINDOWS/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/mvn
 RUN mvn install
 
 
 FROM openjdk
-WORKDIR /app 
+WORKDIR WORKDIR C:/WINDOWS/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/mvn
 
 
 
