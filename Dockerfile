@@ -6,7 +6,7 @@ WORKDIR C:/WINDOWS/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/
 RUN git clone https://github.com/ashwinihegde555/Maven_DB.git
 
 FROM maven
-RUN mvn -f C:/WINDOWS/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/mvn/pom.xml
+RUN mvn -f C:/WINDOWS/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/mvn/pom.xml clean package
 
 
 FROM openjdk
