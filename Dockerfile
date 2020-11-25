@@ -6,11 +6,6 @@ WORKDIR C:/WINDOWS/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/
 RUN git clone https://github.com/ashwinihegde555/Maven_DB.git
 
 
-//FROM maven as build
-//WORKDIR C:/WINDOWS/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/mvn
-//RUN mvn install
-
-
 FROM openjdk
 WORKDIR WORKDIR C:/WINDOWS/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/mvn
 
