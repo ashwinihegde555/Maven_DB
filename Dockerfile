@@ -6,7 +6,7 @@ WORKDIR C:/WINDOWS/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/
 RUN git clone https://github.com/ashwinihegde555/Maven_DB.git
 
 FROM maven:3.5-jdk-8-alpine
-WORKDIR C:/WINDOWS/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/mvn
+WORKDIR C:/WINDOWS/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/mvn/pom.xml
 RUN mvn clean 
 
 
