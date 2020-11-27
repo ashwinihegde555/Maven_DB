@@ -15,4 +15,4 @@ HEALTHCHECK --interval=5s --timeout=3s CMD curl --fail http://localhost:8080 || 
 EXPOSE 8080
 
 
-CMD ["java", "-war", "RegApp2-0.0.1-SNAPSHOT.war"] 
+ENTRYPOINT ["java", "-war", "RegApp2-0.0.1-SNAPSHOT.war"] 
